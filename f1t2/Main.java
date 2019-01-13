@@ -9,10 +9,10 @@ public class Main {
         double sequenceElement = calculateSequenceElement(n);
 
         while (sequenceElement >= bound) {
-            System.out.println(sequenceElement);
+            System.out.println(n + ": " + sequenceElement);
             sequenceElement = calculateSequenceElement(++n);
         }
-        System.out.println("Min element: " + calculateSequenceElement(n));
+        System.out.println("(Min element) " + n + ": " + calculateSequenceElement(n));
         return calculateSequenceElement(n);
     }
 
