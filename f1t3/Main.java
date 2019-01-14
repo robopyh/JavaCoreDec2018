@@ -1,6 +1,6 @@
 public class Main {
 
-    public void calculateFunctionValues(int a, int b, int h) {
+    public void printFunctionValues(int a, int b, int h) {
         System.out.println("    x   |   F(x)    ");
         System.out.println("--------|-----------");
         for (; a <= b; a += h) {
@@ -10,6 +10,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        new Main().calculateFunctionValues(2, 15, 3);
+        new Main().printFunctionValues(2, 15, 3);
     }
 }
