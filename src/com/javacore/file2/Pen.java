@@ -14,7 +14,7 @@ import java.util.Objects;
  * price (50),
  * usageTime}.
  */
-public class Pen {
+public class Pen extends Stationery {
     public enum InkType {
         /**
          * Oil-based ink type.
@@ -35,8 +35,6 @@ public class Pen {
 
     @Getter private String color;
     @Getter private InkType inkType;
-    @Getter@Setter private String owner;
-    @Getter@Setter private long price;
     @Getter private long usageTime = 0;
 
     /**
@@ -54,9 +52,12 @@ public class Pen {
      * @param color String hex-like color, e.g. "#2191F9"
      * @param type  an ink type
      * @param owner owner of the pen
-     * @param price price of the pen
+     * @param price non negative price of the pen
      */
     public Pen(@NonNull String color, @NonNull InkType type, @NonNull String owner, long price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price must be non negative");
+        }
         this.color = color;
         this.inkType = type;
         this.owner = owner;
@@ -82,7 +83,7 @@ public class Pen {
 
     @Override
     public String toString() {
-        return "Pen: " + '\n' +
+        return "Pen: " +
                 "color = " + color +
                 ", type = " + inkType +
                 ", owner = " + owner +
