@@ -15,6 +15,9 @@ import java.util.Objects;
  * usageTime}.
  */
 public class Pen extends Stationery {
+    /**
+     * A type of the pen ink.
+     */
     public enum InkType {
         /**
          * Oil-based ink type.
@@ -38,12 +41,14 @@ public class Pen extends Stationery {
     @Getter private long usageTime = 0;
 
     /**
-     * Instantiates a new Pen.
+     * Instantiates a new default Pen.
+     *
+     * @param owner an owner of the pen
      */
-    public Pen() {
+    public Pen(@NonNull String owner) {
+        this.owner = owner;
         this.color = "#0000FF";
         this.inkType = InkType.OIL;
-        this.owner = "Java Core Class";
         this.price = 50;
     }
 
@@ -51,8 +56,8 @@ public class Pen extends Stationery {
      * Instantiates a new Pen.
      * @param color String hex-like color, e.g. "#2191F9"
      * @param type  an ink type
-     * @param owner owner of the pen
-     * @param price non negative price of the pen
+     * @param owner an owner of the pen
+     * @param price a non negative price of the pen
      */
     public Pen(@NonNull String color, @NonNull InkType type, @NonNull String owner, long price) {
         if (price < 0) {

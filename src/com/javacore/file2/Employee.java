@@ -15,12 +15,17 @@ public class Employee implements Inventory {
     private long totalStationaryCost;
 
     /**
-     * Instantiates a new Employee.
+     * Instantiates a new Employee. Every new employee gets a newcomer stationery suit.
      *
      * @param name name of the new employee
      */
     public Employee(@NonNull String name) {
         this.name = name;
+
+        addStationery(new Pen(name));
+        addStationery(new Folder(name));
+        addStationery(new Paper(name, Paper.PaperType.NOTEBOOK));
+        addStationery(new Supply(name, Supply.SupplyType.CORRECTION_FLUID));
     }
 
     @Override
@@ -46,5 +51,11 @@ public class Employee implements Inventory {
     @Override
     public long getTotalCost() {
         return totalStationaryCost;
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee("ANDREY");
+        employee.showAllStationery();
+        System.out.println(employee.getTotalCost());
     }
 }
