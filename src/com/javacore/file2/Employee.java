@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -54,8 +55,24 @@ public class Employee implements Inventory {
     }
 
     public static void main(String[] args) {
-        Employee employee = new Employee("ANDREY");
+        Employee employee = new Employee("MAXIM");
+
+        Comparator<Stationery> ownerComparator = Comparator.comparing(s -> s.owner);
+        Comparator<Stationery> priceComparator = Comparator.comparingLong(s -> s.price);
+        Comparator<Stationery> ownerPriceComparator = ownerComparator.thenComparing(priceComparator);
+
+
+        employee.addStationery(new Paper("OLEG", Paper.PaperType.STICKY_PADS));
+        employee.addStationery(new Folder("GRIGORY"));
+        employee.addStationery(new Pen("BORIS"));
+
+        employee.stationeryList.sort(ownerComparator);
         employee.showAllStationery();
-        System.out.println(employee.getTotalCost());
+
+        employee.stationeryList.sort(priceComparator);
+        employee.showAllStationery();
+
+        employee.stationeryList.sort(ownerPriceComparator);
+        employee.showAllStationery();
     }
 }
