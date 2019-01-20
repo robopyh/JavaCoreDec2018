@@ -5,6 +5,7 @@ import java.util.Random;
 /**
  * Class represents submarine. Can be launched.
  */
+@coinFlip(use = true)
 public class Submarine {
     public enum OwnerCountry {RUSSIA, USA, CHINA, GERMANY, ISRAEL}
 
@@ -48,7 +49,12 @@ public class Submarine {
         }
 
         private boolean startEngine() {
-            return new Random().nextInt(2) != 0;
+            coinFlip annotation = Submarine.this.getClass().getAnnotation(coinFlip.class);
+            if (annotation.use()) {
+                System.out.println("Using coin flip...");
+                return new Random().nextInt(2) != 0;
+            }
+            return true;
         }
 
         private boolean fullSpeedAhead() {
