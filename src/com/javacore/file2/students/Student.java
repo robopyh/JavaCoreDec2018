@@ -21,8 +21,9 @@ public class Student {
      * @param name a student's name
      * @param age  a student's age starts from 16
      * @return the student builder
+     * @throws IllegalArgumentException will be thrown if {@code age} is under 16
      */
-    public static StudentBuilder builder(@NonNull String name, long age) {
+    public static StudentBuilder builder(@NonNull String name, long age) throws IllegalArgumentException{
         if (age < 16) {
             throw new IllegalArgumentException("Valid age stars with 16.");
         }
