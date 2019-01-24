@@ -3,10 +3,12 @@ public class Main {
     /**
      * Returns a double that represents a maximum sum:  max(a[1] + a[2n], a[2] + a[2n-1], ..., a[n] + a[n+1]).
      * The array argument must be even length.
+     *
      * @param realNumbers even length double array
      * @return maximum sum
+     * @throws IllegalArgumentException it'll be thrown if input array would be odd length
      */
-    public static double findMaxSum(double[] realNumbers) {
+    public static double findMaxSum(double[] realNumbers) throws IllegalArgumentException{
         double max = 0;
         int length = realNumbers.length;
 
@@ -22,4 +24,5 @@ public class Main {
         return max;
     }
 }
+
 
