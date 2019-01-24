@@ -33,7 +33,7 @@ public class Supply extends Stationery {
     /**
      * Instantiates a new default Supply.
      *
-     * @param owner an owner of the supply item
+     * @param owner      an owner of the supply item
      * @param supplyType a type of the supply item
      */
     public Supply(@NonNull String owner, SupplyType supplyType) {
@@ -48,8 +48,9 @@ public class Supply extends Stationery {
      * @param supplyType a type of the supply item
      * @param owner      an owner of the supply item
      * @param price      a non negative price of the supply item
+     * @throws IllegalArgumentException will be thrown if {@code price} is negative
      */
-    public Supply(@NonNull SupplyType supplyType, @NonNull String owner, long price) {
+    public Supply(@NonNull SupplyType supplyType, @NonNull String owner, long price) throws IllegalArgumentException{
         if (price < 0) {
             throw new IllegalArgumentException("Price must be non negative");
         }

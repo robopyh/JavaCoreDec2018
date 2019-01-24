@@ -2,40 +2,23 @@ package com.javacore.file2;
 
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.Setter;
 
 import java.util.Objects;
 
 /**
  * Class represents folder. Provides properties {@code
- *  * capacity (50),
- *  * folderType (FolderType.DISPLAY_BOOK),
- *  * owner ("Java Core Class"),
- *  * price (150),
- *  * using}.
+ * * capacity (50),
+ * * folderType (FolderType.DISPLAY_BOOK),
+ * * owner ("Java Core Class"),
+ * * price (150),
+ * * using}*.
  */
 public class Folder extends Stationery {
     /**
      * A type of the folder.
      */
 // it should be subclasses
-    public enum FolderType {
-        /**
-         * Sheet protector folder type.
-         */
-        SHEET_PROTECTOR,
-        /**
-         * Separator folder type.
-         */
-        SEPARATOR,
-        /**
-         * Ring binder folder type.
-         */
-        RING_BINDER,
-        /**
-         * Display book folder type.
-         */
-        DISPLAY_BOOK}
+    public enum FolderType {SHEET_PROTECTOR, SEPARATOR, RING_BINDER, DISPLAY_BOOK}
 
     @Getter private FolderType folderType;
     @Getter private long capacity;
@@ -60,8 +43,9 @@ public class Folder extends Stationery {
      * @param capacity   an amount of pages the folder can hold (must be positive)
      * @param owner      an owner of the folder
      * @param price      a non negative price of the folder
+     * @throws IllegalArgumentException will be thrown if {@code capacity} is less than 1 or if {@code price} is negative
      */
-    public Folder(@NonNull FolderType folderType, long capacity, @NonNull String owner, long price) {
+    public Folder(@NonNull FolderType folderType, long capacity, @NonNull String owner, long price) throws IllegalArgumentException {
         if (capacity < 1) {
             throw new IllegalArgumentException("Capacity must be positive");
         }

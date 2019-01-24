@@ -12,7 +12,7 @@ import java.util.Objects;
  * inkType (InkType.OIL),
  * owner ("Java Core Class"),
  * price (50),
- * usageTime}.
+ * usageTime}*.
  */
 public class Pen extends Stationery {
     /**
@@ -54,12 +54,14 @@ public class Pen extends Stationery {
 
     /**
      * Instantiates a new Pen.
+     *
      * @param color String hex-like color, e.g. "#2191F9"
      * @param type  an ink type
      * @param owner an owner of the pen
      * @param price a non negative price of the pen
+     * @throws IllegalArgumentException will be thrown if {@code price} is negative
      */
-    public Pen(@NonNull String color, @NonNull InkType type, @NonNull String owner, long price) {
+    public Pen(@NonNull String color, @NonNull InkType type, @NonNull String owner, long price) throws IllegalArgumentException{
         if (price < 0) {
             throw new IllegalArgumentException("Price must be non negative");
         }

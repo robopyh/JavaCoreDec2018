@@ -34,7 +34,7 @@ public class Paper extends Stationery {
     /**
      * Instantiates a new default Paper.
      *
-     * @param owner an owner of the paper product
+     * @param owner     an owner of the paper product
      * @param paperType a type of the paper product
      */
     public Paper(@NonNull String owner, PaperType paperType) {
@@ -51,8 +51,9 @@ public class Paper extends Stationery {
      * @param pagesCount a number of pages (must be positive)
      * @param owner      an owner of the paper product
      * @param price      a non negative price of the paper product
+     * @throws IllegalArgumentException will be thrown if {@code pagesCount} is less than 1 or if {@code price} is negative
      */
-    public Paper(@NonNull PaperType paperType, long pagesCount, @NonNull String owner, long price) {
+    public Paper(@NonNull PaperType paperType, long pagesCount, @NonNull String owner, long price) throws IllegalArgumentException {
         if (pagesCount < 1) {
             throw new IllegalArgumentException("Capacity must be positive");
         }
