@@ -7,9 +7,11 @@ public class SymmetricUnitMatrix {
     /**
      * Creates a symmetric unit matrix of given dimension.
      * Dimension argument must be positive.
+     *
      * @param dimension positive int dimension of the matrix.
+     * @throws IllegalArgumentException it'll be thrown if input value would be less than 1
      */
-    public void createMatrix(int dimension) {
+    public void createMatrix(int dimension) throws IllegalArgumentException{
         if (dimension < 1) {
             throw new IllegalArgumentException("Dimension argument must be more than 0");
         }
@@ -25,12 +27,8 @@ public class SymmetricUnitMatrix {
             matrix[dimension / 2][dimension / 2] = 1;
         }
     }
-
-    /**
-     * @return current matrix
-     */
+    
     public int[][] getMatrix(){
         return matrix;
     }
 }
-
