@@ -1,2 +1,2 @@
-# JavaCoreDec2018
-Homework checking Repo
+# File 3 Task 2
+Develop an application with a set of numbered questions. User should be able to input a question number and get an corresponding answer. The app must provide an opportunity to use either English or Russian.
