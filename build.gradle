@@ -1,0 +1,19 @@
+plugins {
+    id "io.freefair.lombok" version "2.9.5"
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "com.google.guava:guava:22.0"
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.2.0"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+}
+
